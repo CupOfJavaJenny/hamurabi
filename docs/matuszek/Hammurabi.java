@@ -19,6 +19,7 @@ public class Hammurabi {
 
     void playGame() {
         askHowManyAcresToBuy();
+        askHowManyAcresToSell();
         // declare local variables here: grain, population, etc.
         // statements go after the declations
     }
@@ -44,15 +45,31 @@ public class Hammurabi {
         }
         return acresLand;
 
-//    }
-//    int askHowManyAcresToSell(int acresOwned){
-//
-//    }
+    }
+
+    int askHowManyAcresToSell() {
+        System.out.println("How many acres do you wish to sell?");
+        // sell is carrying how many acres were input by hammurabi.
+        int sellAmount = scanner.nextInt();
+        //i have to sell more than 0 acres
+        if (sellAmount < 0) {
+            System.out.println("You need to sell something at least, to feed others!");
+        }
+        //i haveto be able to sell acres when land value is depreciated, if appreciated i may not be able to sell
+        int bushelsBank = landValue * sellAmount;
+        if (sellAmount < landValue) {
+            System.out.println("Land has appreciated, you can't sell that much");
+        }
+        return 0;
+    }
+
+
 //    int askHowMuchGrainToFeedPeople(int bushels){
 //
 //    }
 //    int askHowManyAcresToPlant(int acresOwned, int population, int bushels){
 //
 //    }
-    }
+
+
 }
